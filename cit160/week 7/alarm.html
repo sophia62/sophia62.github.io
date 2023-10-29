@@ -1,0 +1,44 @@
+<!-- Defining Table for alarm.html Program -->
+<!--
+Inputs: month (0 to 11, representing January to December), dayOfMonth (1 to 31), dayOfWeek (0 to 6, representing Sunday to Saturday)
+Outputs: alarmMessage (string)
+Processing:
+  1. Check if today is a weekday (Monday to Friday) and not a holiday (January 1, July 4, or December 25).
+  2. If yes, set alarmMessage to "Get up!" else set alarmMessage to "Sleep in."
+  3. Output alarmMessage.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alarm Message</title>
+</head>
+<body>
+    <script>
+        // Get current date information
+        var now = new Date();
+        var month = now.getMonth(); // Month (0 to 11)
+        var dayOfMonth = now.getDate(); // Day of the month (1 to 31)
+        var dayOfWeek = now.getDay(); // Day of the week (0 for Sunday, 1 for Monday, ..., 6 for Saturday)
+        
+        // Check if today is a weekday (Monday to Friday) and not a holiday
+        var isWeekday = dayOfWeek >= 1 && dayOfWeek <= 5;
+        var isNewYearsDay = month === 0 && dayOfMonth === 1;
+        var isIndependenceDay = month === 6 && dayOfMonth === 4;
+        var isChristmas = month === 11 && dayOfMonth === 25;
+        
+        // Determine the alarm message based on the conditions
+        var alarmMessage;
+        if (isWeekday && !isNewYearsDay && !isIndependenceDay && !isChristmas) {
+            alarmMessage = "Get up!";
+        } else {
+            alarmMessage = "Sleep in.";
+        }
+        
+        // Output the alarm message
+        document.body.innerHTML = "<h2>" + alarmMessage + "</h2>";
+    </script>
+</body>
+</html>

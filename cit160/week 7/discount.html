@@ -1,0 +1,40 @@
+<!-- Program Description -->
+<!--
+Hey there! Welcome to our discount calculator. We're here to make your shopping experience better!
+Inputs: customerSubtotal (number), dayOfWeek (0 to 6, where 0 is Sunday, 1 is Monday, and so on)
+Outputs: totalAmountDue (number)
+Processing:
+  1. If your purchase is over $50 and it's Tuesday (2) or Wednesday (3), we'll give you a sweet 10% discount.
+  2. Then, we'll add a 6% sales tax to your discounted total.
+  3. You get your total amount due. Enjoy your savings!
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discount Calculator</title>
+</head>
+<body>
+    <script>
+        // Get the current day of the week
+        var dayOfWeek = new Date().getDay();
+        
+        // Get the subtotal from the user (hope you found some great items!)
+        var customerSubtotal = parseFloat(prompt("Hey there! What's your subtotal today?"));
+        
+        // Check if your subtotal is more than $50 and it's Tuesday (2) or Wednesday (3)
+        if (customerSubtotal > 50 && (dayOfWeek === 2 || dayOfWeek === 3)) {
+            customerSubtotal -= customerSubtotal * 0.10; //10% discount
+        }
+        
+        // Calculate the total amount due after adding 6% sales tax
+        var salesTax = customerSubtotal * 0.06;
+        var totalAmountDue = customerSubtotal + salesTax;
+        
+        // Display the total amount due on the web page
+        document.body.innerHTML = "<h2>Great news! Your total amount due is $" + totalAmountDue.toFixed(2) + ". Happy shopping!</h2>";
+    </script>
+</body>
+</html>
