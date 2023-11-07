@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quarts to Liters Converter</title>
+</head>
+<body>
+    <!-- Defining Table:
+    Input: quarts (real number)
+    Output: liters (real number)
+    Processing: liters = quarts * 0.946352946 -->
+    
+    <script>
+        var quarts = parseFloat(prompt("Enter volume in quarts:"));
+        var liters = quarts * 0.946352946;
+        alert(quarts + " quarts is equal to " + liters.toFixed(2) + " liters.");
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mileage Calculator</title>
+</head>
+<body>
+    <!-- Defining Table:
+    Input: beginningOdometer, endingOdometer, gallons (real numbers)
+    Output: mileage (real number)
+    Processing: mileage = (endingOdometer - beginningOdometer) / gallons -->
+    
+    <script>
+        var beginningOdometer = parseFloat(prompt("Enter beginning odometer reading:"));
+        var endingOdometer = parseFloat(prompt("Enter ending odometer reading:"));
+        var gallons = parseFloat(prompt("Enter number of gallons of gasoline used:"));
+        
+        var mileage = (endingOdometer - beginningOdometer) / gallons;
+        alert("Mileage: " + mileage.toFixed(2) + " miles per gallon.");
+    </script>
+</body>
+</html>
