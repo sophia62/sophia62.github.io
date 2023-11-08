@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Quiz</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Defining Table:
+        Input: num1 (number) - First number entered by the user.
+               operator (string) - Arithmetic operator entered by the user.
+               num2 (number) - Second number entered by the user.
+               userAnswer (number) - User's answer to the arithmetic problem.
+        Output: result (string) - Message indicating whether the user's answer is correct or incorrect.
+        Process: 
+        1. Get user input for num1, operator, num2, and userAnswer.
+        2. Perform the arithmetic operation based on the operator.
+        3. Compare the computed answer with the user's answer.
+        4. Output "Correct! Good job!" if the answers match, otherwise output "Incorrect. Try again!".
+        */
+
+        var num1 = parseFloat(prompt("Enter the first number:"));
+        var operator = prompt("Enter an arithmetic operator (+, -, *, or /):");
+        var num2 = parseFloat(prompt("Enter the second number:"));
+        var userAnswer = parseFloat(prompt("Enter your answer:"));
+        var computedAnswer;
+        var result;
+
+        if (operator === "+") {
+            computedAnswer = num1 + num2;
+        } else if (operator === "-") {
+            computedAnswer = num1 - num2;
+        } else if (operator === "*") {
+            computedAnswer = num1 * num2;
+        } else if (operator === "/") {
+            computedAnswer = num1 / num2;
+        } else {
+            result = "Invalid operator";
+        }
+
+        if (computedAnswer !== undefined) {
+            if (computedAnswer === userAnswer) {
+                result = "Correct! Good job!";
+            } else {
+                result = "Incorrect. Try again!";
+            }
+        }
+
+        alert(result);
+    </script>
+</body>
+
+</html>

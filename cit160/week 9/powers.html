@@ -1,0 +1,26 @@
+<!-- Defining Table for powers.html:
+Input: None
+Output: Display all powers of 2 from 2^0 up to 2^31, inclusive.
+Process:
+1. Use a loop to iterate from 0 to 31.
+2. For each iteration, calculate 2 raised to the power of the current number in the loop.
+3. Display the calculated power.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Powers of 2</title>
+</head>
+<body>
+    <script>
+        // Program to display powers of 2 from 2^0 to 2^31
+        for (var i = 0; i <= 31; i++) {
+            var power = Math.pow(2, i);
+            document.write(power + "<br>");
+        }
+    </script>
+</body>
+</html>

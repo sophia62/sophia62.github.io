@@ -19,7 +19,7 @@ main section {
 }
 
 body {
-  background-color: #fcfbfb;
+  background-color: #eaecec;
   font-family: Raleway, Arial, sans-serif;
   font-size: 22px;
   margin: 0;
@@ -29,8 +29,9 @@ body {
 header {
   display: grid;
   grid-template-columns: 150px auto;
-  background-color: rgba(20, 30, 13, 0.7);
+  background-color: #6f7364;
   padding: 10px 20px;
+  
 }
 
 nav {
@@ -44,12 +45,13 @@ nav {
   justify-self: center;
   align-self: center;
   text-decoration: none;
-  color: #fff; /* Set the color for the logo text */
+  color: #fff;
 }
 
 nav a:hover {
   background-color: black;
   color: #d9c2a3;
+  
 }
 
 .book,
@@ -68,6 +70,7 @@ nav a:hover {
 .book:hover,
 .join:hover {
   background-color: #cc7700;
+  
 }
 
 #background,
@@ -92,6 +95,7 @@ nav a,
 footer a {
   text-decoration: none;
   color: #000000;
+  color: #fff
 }
 
 footer p {
@@ -275,3 +279,71 @@ main section img {
       margin-top: 25px;
   }
 }
+
+.h1river {
+  text-align: center;
+  font-size: 2em;
+  font-family: 'Rock Salt', serif;
+  font-weight: 900;
+  color: #6f7364;
+  
+}
+
+.rivers-title-1 {
+  font-size: 1em;
+  font-weight: bold;
+  font-family: 'Rock Salt', serif;
+  text-align: center;
+  
+  
+}
+
+.rivers-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 1em;
+}
+
+.rivers-headline-1 {
+  font-size: 1.1em;
+  font-weight: bold;
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+  text-align: left;
+}
+
+.rivers-paragraph-1 {
+  grid-column: 3 / 6;
+  grid-row: 2 / 4;
+}
+
+.rivers-img-1 {
+  grid-column: 1 / 3;
+  grid-row: 2 / 4;
+  align-self: center;
+}
+
+.rivers-headline-2 {
+  font-size: 1.1em;
+  font-weight: bold;
+  grid-column: 1 / -1;
+  grid-row: 4 / 5;
+  text-align: left;
+}
+
+.rivers-paragraph-2 {
+  grid-column: 1 / 4;
+  grid-row: 5 / 7;
+}
+
+.rivers-img-2 {
+  grid-column: 4 / 6;
+  grid-row: 5 / 7;
+  align-self: center;
+}
+
+
+@media screen and (max-width: 550px) { 
+    .home-grid, .rivers-grid, nav ul, .hero-box   {
+    display: block;
+    }}

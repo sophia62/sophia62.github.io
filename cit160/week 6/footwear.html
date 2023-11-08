@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footwear Selector</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Defining Table:
+        Input: weather (string) - The type of weather entered by the user.
+        Output: footwear (string) - The appropriate footwear for the given weather.
+        Process: 
+        1. Get the user input for the weather.
+        2. Use selection (if-else statements) to determine the appropriate footwear based on the weather input.
+        3. Output the corresponding footwear or "shoes" if the weather input is not recognized.
+        */
+
+        var weather = prompt("Enter the weather:").toLowerCase();
+        var footwear;
+
+        if (weather === "hot") {
+            footwear = "sandals";
+        } else if (weather === "rain") {
+            footwear = "galoshes";
+        } else if (weather === "snow") {
+            footwear = "boots";
+        } else {
+            footwear = "shoes";
+        }
+
+        alert("Footwear for today: " + footwear);
+    </script>
+</body>
+
+</html>
