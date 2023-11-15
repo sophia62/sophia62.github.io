@@ -354,3 +354,16 @@ main section img {
     .home-grid, .rivers-grid, nav ul, .hero-box   {
     display: block;
     }}
+
+#feedback {
+    background-color: antiquewhite;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: .5em;
+    display: none;
+}
+.moveDown {
+    margin-top: 3em;
+}

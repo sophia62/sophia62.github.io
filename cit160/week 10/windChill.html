@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wind Chill Calculator</title>
+</head>
+<body>
+
+    <!-- Defining Table:
+         HTML Structure:
+            - Label and input for Temperature
+            - Label and input for Wind Speed
+            - Button for Wind Chill calculation
+            - Div for displaying output
+
+         JavaScript Functions:
+            1. windChill(tempF, speed):
+                - Parameters: tempF (temperature in Fahrenheit), speed (wind speed in mph)
+                - Calculates the wind chill factor using the provided formula
+                - Returns the wind chill factor (rounded to two decimal places)
+
+            2. doInputOutput():
+                - Triggered by the button click
+                - Gets temperature and wind speed from input fields
+                - Calls windChill function with the input values
+                - Displays the result in the output div
+        -->
+
+    <label for="temperature">Temperature:</label>
+    <input type="text" id="temperature" placeholder="Enter temperature in Fahrenheit">
+
+    <label for="windSpeed">Wind Speed:</label>
+    <input type="text" id="windSpeed" placeholder="Enter wind speed in mph">
+
+    <button onclick="doInputOutput()">Wind Chill</button>
+
+    <div id="output"></div>
+
+    <script>
+        function windChill(tempF, speed) {
+            let windChillFactor = 35.74 + 0.6215 * tempF - 35.75 * Math.pow(speed, 0.16) + 0.4275 * tempF * Math.pow(speed, 0.16);
+            return windChillFactor.toFixed(2); 
+
+        }
+
+        function doInputOutput() {
+            let temperatureInput = document.getElementById('temperature').value;
+            let windSpeedInput = document.getElementById('windSpeed').value;
+
+            if (temperatureInput === "" || windSpeedInput === "") {
+                alert("Please enter both temperature and wind speed.");
+                return;
+            }
+
+            let temperature = parseFloat(temperatureInput);
+            let windSpeed = parseFloat(windSpeedInput);
+
+            let result = windChill(temperature, windSpeed);
+
+            document.getElementById('output').innerText = `Wind Chill: ${result} °F`;
+        }
+    </script>
+
+</body>
+</html>
