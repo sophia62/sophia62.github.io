@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <title>Investment Calculator</title>
+    <script>
+        function computeFutureValue(principal, annualRate, years, periodsPerYear) {
+            var periods = years * periodsPerYear;
+            var ratePerPeriod = annualRate / periodsPerYear;
+            var futureValue = principal * Math.pow(1 + ratePerPeriod, periods);
+            return futureValue;
+        }
+
+        function calculateFutureValue() {
+            var principal = parseFloat(document.getElementById("principal").value);
+            var annualRate = parseFloat(document.getElementById("annualRate").value);
+            var years = parseInt(document.getElementById("years").value);
+            var periodsPerYear = parseInt(document.getElementById("periodsPerYear").value);
+
+            var futureValue = computeFutureValue(principal, annualRate, years, periodsPerYear);
+            
+            document.getElementById("result").innerHTML = "Future Value: $" + futureValue.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+    <h1>Investment Calculator</h1>
+    Principal Amount: <input type="text" oninput="calculateFutureValue()" onchange="calculateFutureValue()" id="principal"><br>   
+    Annual Interest Rate (%): <input type="text" oninput="calculateFutureValue()" onchange="calculateFutureValue()" id="annualRate"><br>
+    Number of Years: <input type="text" oninput="calculateFutureValue()" onchange="calculateFutureValue()" id="years"><br>
+    Periods per Year: <input type="text" oninput="calculateFutureValue()" onchange="calculateFutureValue()" id="periodsPerYear"><br>
+    <p id="result"></p>
+</body>
+</html>

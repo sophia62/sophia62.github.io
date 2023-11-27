@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <title>Loan Calculator</title>
+    <script>
+        function computePayment(principal, annualRate, years, periodsPerYear) {
+            var periods = years * periodsPerYear;
+            var ratePerPeriod = annualRate / periodsPerYear;
+            var denominator = Math.pow(1 + ratePerPeriod, -periods);
+            var payment = principal * ratePerPeriod / (1 - denominator);
+            return payment;
+        }
+
+        function computeBalance(principal, annualRate, years, periodsPerYear, numberOfPaymentsPaidToDate) {
+            var periods = years * periodsPerYear;
+            var ratePerPeriod = annualRate / periodsPerYear;
+            var denominator = Math.pow(1 + ratePerPeriod, numberOfPaymentsPaidToDate);
+            var balance = principal * denominator - (computePayment(principal, annualRate, years, periodsPerYear) * (denominator - 1)) / ratePerPeriod;
+            return balance;
+        }
+
+        function calculatePayment() {
+            var principal = parseFloat(document.getElementById("principal").value);
+            var annualRate = parseFloat(document.getElementById("annualRate").value);
+            var years = parseInt(document.getElementById("years").value);
+            var periodsPerYear = parseInt(document.getElementById("periodsPerYear").value);
+
+            var payment = computePayment(principal, annualRate, years, periodsPerYear);
+            
+            document.getElementById("paymentResult").innerHTML = "Monthly Payment: $" + payment.toFixed(2);
+        }
+
+        function calculateBalance() {
+            var principal = parseFloat(document.getElementById("principal").value);
+            var annualRate = parseFloat(document.getElementById("annualRate").value);
+            var years = parseInt(document.getElementById("years").value);
+            var periodsPerYear = parseInt(document.getElementById("periodsPerYear").value);
+            var numberOfPaymentsPaid = parseInt(document.getElementById("numberOfPaymentsPaid").value);
+
+            var balance = computeBalance(principal, annualRate, years, periodsPerYear, numberOfPaymentsPaid);
+            
+            document.getElementById("balanceResult").innerHTML = "Remaining Balance: $" + balance.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+    <h1>Loan Calculator</h1>
+    Principal Amount: <input type="text" oninput="calculatePayment(); calculateBalance()" onchange="calculatePayment(); calculateBalance()" id="principal"><br>
+    Annual Interest Rate (%): <input type="text" oninput="calculatePayment(); calculateBalance()" onchange="calculatePayment(); calculateBalance()" id="annualRate"><br>
+    Number of Years: <input type="text" oninput="calculatePayment(); calculateBalance()" onchange="calculatePayment(); calculateBalance()" id="years"><br>
+    Periods per Year: <input type="text" oninput="calculatePayment(); calculateBalance()" onchange="calculatePayment(); calculateBalance()" id="periodsPerYear"><br>
+    <button onmouseover="calculatePayment()">Compute Payment</button>
+    <p id="paymentResult"></p>
+    Number of Payments Paid to Date: <input type="text" oninput="calculateBalance()" onchange="calculateBalance()" id="numberOfPaymentsPaid"><br>
+    <p id="balanceResult"></p>
+</body>
+</html>
